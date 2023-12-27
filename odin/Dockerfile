@@ -18,6 +18,12 @@ RUN git clone https://github.com/odin-lang/Odin.git . \
     && git checkout dev-2023-11 \
     && LLVM_CONFIG="/usr/bin/llvm-config-17" make release
 
+# Set clang as our default c++ compiler using LLVM 17
+ENV CXX="/usr/bin/clang++-17"
+
+# Echo the version of clang we're using
+RUN $CXX --version
+
 RUN mkdir /odin-artifacts && cp -R ./odin ./core ./shared /odin-artifacts
 
 WORKDIR /
