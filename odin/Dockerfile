@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 RUN apt-get update -qq && \
     apt-get install -y wget lsb-release software-properties-common gnupg \
