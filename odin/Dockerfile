@@ -2,14 +2,11 @@ FROM ubuntu:22.04
 
 RUN apt-get update -qq && \
     apt-get install -y wget lsb-release software-properties-common gnupg \
-                       apt-transport-https ca-certificates
+                       apt-transport-https ca-certificates git build-essential clang
 
 WORKDIR /llvm
 RUN wget https://apt.llvm.org/llvm.sh && chmod +x llvm.sh
 RUN ./llvm.sh 17 all
-
-RUN apt-get update -qq && \
-    apt-get install -y clang git build-essential
 
 WORKDIR /odin-build
 
